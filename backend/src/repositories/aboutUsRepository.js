@@ -1,9 +1,9 @@
 const pool = require("../config/db");
 
-async function getBanner() {
+async function getAboutUs() {
     const result = await pool.query(`
         SELECT *
-        FROM banner
+        FROM about_us
         LIMIT 1
     `);
 
@@ -11,5 +11,5 @@ async function getBanner() {
 }
 
 module.exports = {
-    getBanner
+    getAboutUs
 };
