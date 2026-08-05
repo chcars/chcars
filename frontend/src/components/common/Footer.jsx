@@ -43,11 +43,6 @@ function Footer() {
               Instagram
             </a>
           ) : null}
-          {data.tiktok_url ? (
-            <a href={data.tiktok_url} target="_blank" rel="noopener noreferrer">
-              TikTok
-            </a>
-          ) : null}
         </section>
       </div>
 

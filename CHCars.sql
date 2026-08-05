@@ -9,6 +9,7 @@ CREATE TABLE banner (
     text         TEXT NOT NULL,
     photo        TEXT NOT NULL,
     photo_alt     VARCHAR(200),
+    photo_mobile TEXT,
     button_text  VARCHAR(100),
     button_url   TEXT
 );
@@ -122,18 +123,17 @@ INSERT INTO settings (
     tiktok_url
 ) VALUES (
     'CH Cars',
-    'Especialistas en chapa, pintura y microbollo',
-    '3511234567',
-    '5493511234567',
-    'chcars@gmail.com',
+    E'Especialistas en chapa, pintura y microbollos en Córdoba \nTrabajamos con las principales aseguradoras',
+    '3516620701',
+    '5493516620701',
+    'tallerchcars@gmail.com',
     'Avenida Bodereau 8860, Córdoba, Argentina',
     'https://maps.app.goo.gl/4kUw1T2sd6kFyA3S8',
     -31.319439,
     -64.288286,
     'Lunes a Viernes de 8:00 a 18:00',
-    'https://facebook.com/chcars',
-    'https://instagram.com/chcars',
-    'https://tiktok.com/@chcars'
+    'https://facebook.com/tallerchcars',
+    'https://instagram.com/tallerchcars'
 );
 
 INSERT INTO seo_meta (page, meta_title, meta_description) VALUES
@@ -241,7 +241,13 @@ VALUES (
     'La Caja',
     '/images/aseguradoras/Logo_La_Caja.png',
     'Logo de La Caja Seguros'
-);
+),
+(
+    'La Segunda',
+    '/images/aseguradoras/laSegunda.webp',
+    'Logo de La Segunda Seguros'
+)
+;
 
 -- ============================================
 -- Seed: Banner (hero de la home)
@@ -249,14 +255,16 @@ VALUES (
 INSERT INTO banner (
     text,
     photo,
+    photo_mobile,
     photo_alt,
     button_text,
     button_url
 ) VALUES (
-    'Soluciones rápidas para tu auto, con atención cercana y confiable.',
+    'Tu auto\nvuelve\ncomo nuevo.',
     '/images/banner/bannerAuto.png',
+    '/images/banner/bannerCelular.png',
     'Taller de chapa y pintura CH Cars',
-    'Agendá tu turno',
+    'Solicitá tu presupuesto',
     'https://wa.me/5493516620701'
 );
 
@@ -275,20 +283,42 @@ INSERT INTO jobs (
     display_order
 ) VALUES
 (
-    'Reparación de paragolpes',
-    'Reparación y pintura completa de paragolpes delantero con acabado de fábrica.',
-    '/images/jobs/antes/jeep.webp',
-    'Paragolpes delantero dañado antes de la reparación',
-    '/images/jobs/despues/jeep.webp',
-    'Paragolpes delantero reparado y pintado',
-    'Chapa y pintura',
-    'Jeep Renegade',
+    'Pintura de paragolpes',
+    'Pintura completa de paragolpes trasero con acabado de fábrica.',
+    '/images/jobs/antes/208rojo.jpeg',
+    'Paragolpes trasero dañado antes de la reparación',
+    '/images/jobs/despues/208rojo.jpeg',
+    'Paragolpes trasero reparado y pintado',
+    'Pintura',
+    'Peugeot 208',
     1
 );
-
+INSERT INTO jobs (
+    name,
+    description,
+    photo_before,
+    photo_before_alt,
+    photo_after,
+    photo_after_alt,
+    category,
+    vehicule,
+    display_order
+) VALUES
+(
+    'Pintura de puertas y guardabarros',
+    'Pintura completa de puerta y guardabarro trasero con acabado de fábrica.',
+    '/images/jobs/antes/rangerblanca.jpeg',
+    'Puerta y guardabarro trasero dañados antes de la reparación',
+    '/images/jobs/despues/rangerblanca.jpeg',
+    'Puerta y guardabarro trasero pintados',
+    'Pintura',
+    'Ford Ranger',
+    2
+);
 -- ============================================
 -- Seed: Contenido de la página "Nosotros" (about_us)
 -- ============================================
+
 INSERT INTO about_us (
     title,
     description,
@@ -296,7 +326,7 @@ INSERT INTO about_us (
     photo_alt
 ) VALUES (
     'Más de 20 años cuidando tu auto',
-    'En CH Cars trabajamos con pasión, precisión y compromiso para devolverle a cada vehículo su mejor estado.\n\nRealizamos trabajos de chapa, pintura, microbollo y reparación integral, acompañando a cada cliente con asesoramiento claro y atención personalizada.',
+    E'Desde hace más de 20 años, CH Cars es sinónimo de confianza en Córdoba para quienes buscan un taller de chapa y pintura serio, prolijo y con atención cercana.\n\nTrabajamos cada vehículo con la misma dedicación: reparaciones de chapa, pintura, microbollo y trabajos integrales, siempre con acabados de fábrica y materiales de primera calidad.\n\nSabemos que dejar tu auto en un taller no es un trámite más, por eso te acompañamos en todo el proceso con información clara, tiempos reales y la garantía de que va a volver a tus manos como el primer día.',
     '/images/nosotros/taller.png',
     'Taller de CH Cars en Córdoba'
 );

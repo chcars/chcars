@@ -1,0 +1,50 @@
+.floating-actions {
+    position: fixed;
+    right: 1rem;
+    bottom: 1.25rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.floating-actions__btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-white-neon);
+    color: var(--color-black);
+    box-shadow: var(--shadow-white-glow);
+    text-decoration: none;
+    transition: transform 140ms var(--transition-ease), box-shadow 140ms var(--transition-ease), background 140ms var(--transition-ease), color 140ms var(--transition-ease);
+}
+
+.floating-actions__btn svg {
+    width: 20px;
+    height: 20px;
+    color: currentColor;
+}
+
+.floating-actions__btn:hover,
+.floating-actions__btn:focus {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: var(--shadow-orange-glow);
+    background: var(--color-orange);
+    color: var(--color-white-neon);
+}
+
+.floating-actions__btn:focus {
+    outline: 2px solid color-mix(in srgb, var(--color-orange) 35%, transparent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+    .floating-actions {
+        right: 0.75rem;
+        bottom: 1rem;
+    }
+}

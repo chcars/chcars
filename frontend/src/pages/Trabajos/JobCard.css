@@ -25,22 +25,28 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: opacity 180ms var(--transition-ease);
 }
 
 .job-card__after {
     position: absolute;
     inset: 0;
+    z-index: 1;
+    object-position: right center;
 }
 
 .job-card__before-wrapper {
     position: absolute;
     inset: 0 auto 0 0;
     overflow: hidden;
+    z-index: 2;
 }
 
 .job-card__before {
     position: absolute;
     inset: 0;
+    z-index: 3;
+    object-position: left center;
 }
 
 .job-card__divider {
@@ -50,7 +56,33 @@
     width: 2px;
     background: var(--color-white-neon);
     transform: translateX(-1px);
-    z-index: 2;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.job-card__divider .job-card__knob {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-white-neon);
+    color: var(--color-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-white-glow);
+    font-weight: 700;
+    pointer-events: none; /* allow range input to receive pointer */
+    z-index: 4;
+}
+
+.job-card__divider .job-card__knob::after {
+    content: "";
 }
 
 .job-card__range {
@@ -60,14 +92,50 @@
     margin: 0;
     opacity: 0;
     cursor: ew-resize;
-    z-index: 3;
+    z-index: 5;
+}
+
+.job-card__label {
+    position: absolute;
+    top: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.6);
+    color: var(--color-white-neon);
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 160ms var(--transition-ease), transform 160ms var(--transition-ease);
+    z-index: 7;
+}
+
+.job-card__label.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.job-card__label--before {
+    left: 1rem;
+}
+
+.job-card__label--after {
+    right: 1rem;
+}
+
+/* Dim the hovered side slightly to reveal the label */
+.job-card__comparison.hover-before .job-card__before {
+    opacity: 0.6;
+}
+
+.job-card__comparison.hover-after .job-card__after {
+    opacity: 0.6;
 }
 
 .job-card__badge {
     position: absolute;
     left: 1rem;
     top: 1rem;
-    z-index: 4;
+    z-index: 8;
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
     background: color-mix(in srgb, var(--color-black) 70%, transparent);

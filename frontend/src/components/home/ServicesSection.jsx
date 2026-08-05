@@ -25,19 +25,59 @@ function ServicesSection() {
     return (
         <section className="services-section">
             <header className="services-section__header">
-                <h2>Nuestros Servicios</h2>
+
+                <div className="services-section__badge">
+                    <span className="services-section__badge-line"></span>
+                    <span className="services-section__badge-text">
+                        SERVICIOS
+                    </span>
+                </div>
+                
+                <h2>
+                    Todo lo que tu vehículo necesita
+                </h2>
+                
+                <p>
+                    Soluciones integrales de chapa, pintura y estética automotriz
+                    con materiales de primera calidad y atención personalizada.
+                </p>
+                
             </header>
 
             <div className="services-section__grid">
                 {services.map((item) => (
                     <article key={item.service_id} className="services-section__card">
-                        <img className="services-section__image" src={item.photo} alt={item.photo_alt} />
-                        <div className="services-section__body">
-                            <h3 className="services-section__title">{item.name}</h3>
-                            {item.description ? <p className="services-section__description">{item.description}</p> : null}
+                    
+                        <div className="services-section__image-wrapper">
+                                
+                            <img
+                                className="services-section__image"
+                                src={item.photo}
+                                alt={item.photo_alt}
+                            />
+                
+                            <div className="services-section__overlay">
+                                
+                                <h3 className="services-section__title">
+                                    {item.name}
+                                </h3>
+                                
+                            </div>
+                                
                         </div>
+                                
+                        <div className="services-section__body">
+                                
+                            {item.description ? (
+                                <p className="services-section__description">
+                                    {item.description}
+                                </p>
+                            ) : null}
+                
+                        </div>
+                        
                     </article>
-                ))}
+))}
             </div>
         </section>
     );
