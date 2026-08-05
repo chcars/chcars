@@ -32,10 +32,28 @@ function Faq() {
             return accumulator;
         }, {});
 
+        Object.keys(groups).forEach((category) => {
+            groups[category].sort((firstQuestion, secondQuestion) => {
+                return Number(firstQuestion.display_order ?? 0) - Number(secondQuestion.display_order ?? 0);
+            });
+        });
+
         return Object.entries(groups);
     }, [data, searchTerm]);
 
     const hasResults = groupedQuestions.length > 0;
+
+    if (loading) {
+        return <Loader />;
+    }
+
+    if (error) {
+        return <p>No se pudieron cargar las preguntas frecuentes</p>;
+    }
+
+    if (!Array.isArray(data)) {
+        return null;
+    }
 
     return (
         <section className="faq-page">
@@ -51,15 +69,11 @@ function Faq() {
                 />
             </header>
 
-            {loading ? <Loader /> : null}
-
-            {error ? <p>No se pudieron cargar las preguntas frecuentes</p> : null}
-
-            {!loading && !error && Array.isArray(data) && !hasResults ? (
-                <p>No se encontraron preguntas con ese término</p>
+            {!hasResults ? (
+                <p>No se encontraron preguntas para tu búsqueda</p>
             ) : null}
 
-            {!loading && !error && hasResults ? (
+            {hasResults ? (
                 <div className="faq-page__groups">
                     {groupedQuestions.map(([category, questions]) => (
                         <section key={category} className="faq-page__group">

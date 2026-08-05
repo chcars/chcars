@@ -1,5 +1,6 @@
 .trabajos-page {
     padding: 3rem 1.5rem;
+    font-family: var(--font-main);
 }
 
 .trabajos-page__header {
@@ -8,6 +9,8 @@
 
 .trabajos-page__header h1 {
     margin: 0;
+    font-family: var(--font-heading);
+    color: var(--color-white-neon);
 }
 
 .trabajos-page__filters {
@@ -18,18 +21,20 @@
 }
 
 .trabajos-page__filter {
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--color-gray-border);
     border-radius: 999px;
-    background: #fff;
+    background: var(--color-white-neon);
     padding: 0.65rem 1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    color: var(--color-black);
+    transition: var(--transition-base);
 }
 
 .trabajos-page__filter.is-active {
-    background: #111827;
-    color: #fff;
-    border-color: #111827;
+    background: var(--color-black-soft);
+    color: var(--color-white-neon);
+    border-color: var(--color-orange);
+    box-shadow: var(--shadow-orange-glow);
 }
 
 .trabajos-page__grid {

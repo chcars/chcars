@@ -14,7 +14,7 @@
 .hero-banner__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: color-mix(in srgb, var(--color-black) 50%, transparent);
     z-index: 1;
 }
 
@@ -23,16 +23,20 @@
     z-index: 2;
     width: min(100%, 72rem);
     padding: 3rem 1.5rem;
-    color: #fff;
+    color: var(--color-white-neon);
     text-align: center;
+    font-family: var(--font-main);
 }
 
 .hero-banner__title {
     margin: 0;
     font-size: clamp(2rem, 5vw, 4.5rem);
     line-height: 1.05;
+    font-family: var(--font-heading);
+    text-shadow: var(--shadow-white-glow);
 }
 
 .hero-banner__button {
     margin-top: 1.75rem;
+    transition: var(--transition-base);
 }

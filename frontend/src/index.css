@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--color-black);
+  color: var(--color-white-neon);
+  font-family: var(--font-main);
+}
+
+#root {
+  min-height: 100vh;
+}

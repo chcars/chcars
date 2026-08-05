@@ -7,8 +7,9 @@
     justify-content: space-between;
     gap: 1rem;
     padding: 1rem 1.5rem;
-    background: rgba(10, 10, 10, 0.92);
+    background: var(--color-black-soft);
     backdrop-filter: blur(12px);
+    font-family: var(--font-main);
 }
 
 .site-navbar__nav {
@@ -21,8 +22,19 @@
 
 .site-navbar__link,
 .site-navbar__brand {
-    color: #fff;
+    color: var(--color-white-neon);
     text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.site-navbar__brand {
+    font-family: var(--font-heading);
+}
+
+.site-navbar__link:hover,
+.site-navbar__brand:hover {
+    color: var(--color-orange);
+    text-shadow: var(--shadow-white-glow);
 }
 
 .site-navbar__cta {

@@ -3,14 +3,18 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
     padding: 3rem 1.5rem;
+    font-family: var(--font-main);
 }
 
 .location-map__content h2 {
     margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    color: var(--color-white-neon);
 }
 
 .location-map__content p {
     margin: 0 0 0.75rem;
+    color: var(--color-gray-text);
 }
 
 .location-map__map {
@@ -20,13 +24,20 @@
 
 .location-map__map iframe {
     width: 100%;
-    border-radius: 1rem;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-white-glow);
 }
 
 .location-map__link {
     font-weight: 600;
     text-decoration: none;
+    color: var(--color-orange);
+    transition: var(--transition-base);
+}
+
+.location-map__link:hover {
+    color: var(--color-white-neon);
+    text-shadow: var(--shadow-white-glow);
 }
 
 @media (max-width: 768px) {

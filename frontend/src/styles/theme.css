@@ -1,0 +1,21 @@
+:root {
+  /* Colores principales */
+  --color-black: #0D0D0D;
+  --color-black-soft: #131313;
+  --color-orange: #FF6A00;
+  --color-orange-glow: rgba(255, 106, 0, 0.5);
+  --color-white-neon: #F5F5F5;
+  --color-white-neon-glow: rgba(245, 245, 245, 0.4);
+  --color-gray-text: #AAAAAA;
+  --color-gray-border: rgba(255, 255, 255, 0.08);
+
+  /* Tipografía */
+  --font-main: 'Barlow', sans-serif;
+  --font-heading: 'Barlow Condensed', sans-serif;
+
+  /* Efectos */
+  --shadow-orange-glow: 0 0 16px var(--color-orange-glow);
+  --shadow-white-glow: 0 0 12px var(--color-white-neon-glow);
+  --radius-base: 8px;
+  --transition-base: 0.3s ease;
+}

@@ -4,25 +4,28 @@
     gap: 2rem;
     padding: 3rem 1.5rem;
     align-items: center;
+    font-family: var(--font-main);
 }
 
 .nosotros-page__media img {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-white-glow);
 }
 
 .nosotros-page__content h1 {
     margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    color: var(--color-white-neon);
 }
 
 .nosotros-page__content p {
     margin: 0;
     white-space: pre-line;
     line-height: 1.7;
-    color: #4b5563;
+    color: var(--color-gray-text);
 }
 
 @media (max-width: 768px) {

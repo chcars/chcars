@@ -1,5 +1,6 @@
 .mini-faq {
     padding: 3rem 1.5rem;
+    font-family: var(--font-main);
 }
 
 .mini-faq__header {
@@ -8,6 +9,8 @@
 
 .mini-faq__header h2 {
     margin: 0;
+    font-family: var(--font-heading);
+    color: var(--color-white-neon);
 }
 
 .mini-faq__list {
@@ -20,4 +23,11 @@
     margin-top: 1.5rem;
     font-weight: 600;
     text-decoration: none;
+    color: var(--color-orange);
+    transition: var(--transition-base);
+}
+
+.mini-faq__link:hover {
+    color: var(--color-white-neon);
+    text-shadow: var(--shadow-white-glow);
 }
