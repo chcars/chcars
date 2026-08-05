@@ -1,0 +1,30 @@
+.site-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(12px);
+}
+
+.site-navbar__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.site-navbar__link,
+.site-navbar__brand {
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-navbar__cta {
+    white-space: nowrap;
+}

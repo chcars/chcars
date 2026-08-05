@@ -1,0 +1,23 @@
+.mini-faq {
+    padding: 3rem 1.5rem;
+}
+
+.mini-faq__header {
+    margin-bottom: 1.5rem;
+}
+
+.mini-faq__header h2 {
+    margin: 0;
+}
+
+.mini-faq__list {
+    display: grid;
+    gap: 1rem;
+}
+
+.mini-faq__link {
+    display: inline-flex;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}

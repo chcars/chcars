@@ -1,0 +1,50 @@
+.insurers-list {
+    padding: 3rem 1.5rem;
+}
+
+.insurers-list__header {
+    margin-bottom: 1.5rem;
+}
+
+.insurers-list__header h2 {
+    margin: 0;
+}
+
+.insurers-list__track {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.insurers-list__item {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.insurers-list__item img {
+    display: block;
+    width: auto;
+    max-height: 64px;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .insurers-list__track {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        scroll-snap-type: x mandatory;
+    }
+
+    .insurers-list__item {
+        scroll-snap-align: start;
+    }
+}

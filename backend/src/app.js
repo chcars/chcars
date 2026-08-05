@@ -16,6 +16,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+	res.json({
+		success: true,
+		message: "CH Cars backend is running"
+	});
+});
+
 app.use("/api/settings", settingsRoutes);
 app.use("/api/services", servicesRoutes);
 app.use("/api/jobs", jobsRoutes);

@@ -1,0 +1,35 @@
+.faq-page {
+    padding: 3rem 1.5rem;
+}
+
+.faq-page__header {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.faq-page__header h1 {
+    margin: 0;
+}
+
+.faq-page__search {
+    width: min(100%, 32rem);
+    padding: 0.9rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    font: inherit;
+}
+
+.faq-page__groups {
+    display: grid;
+    gap: 2rem;
+}
+
+.faq-page__group h2 {
+    margin: 0 0 1rem;
+}
+
+.faq-page__list {
+    display: grid;
+    gap: 1rem;
+}

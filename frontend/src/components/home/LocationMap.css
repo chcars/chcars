@@ -1,0 +1,36 @@
+.location-map {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+}
+
+.location-map__content h2 {
+    margin: 0 0 1rem;
+}
+
+.location-map__content p {
+    margin: 0 0 0.75rem;
+}
+
+.location-map__map {
+    display: grid;
+    gap: 1rem;
+}
+
+.location-map__map iframe {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.location-map__link {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .location-map {
+        grid-template-columns: 1fr;
+    }
+}

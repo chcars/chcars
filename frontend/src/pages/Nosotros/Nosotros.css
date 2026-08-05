@@ -1,0 +1,32 @@
+.nosotros-page {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+    align-items: center;
+}
+
+.nosotros-page__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.nosotros-page__content h1 {
+    margin: 0 0 1rem;
+}
+
+.nosotros-page__content p {
+    margin: 0;
+    white-space: pre-line;
+    line-height: 1.7;
+    color: #4b5563;
+}
+
+@media (max-width: 768px) {
+    .nosotros-page {
+        grid-template-columns: 1fr;
+    }
+}
