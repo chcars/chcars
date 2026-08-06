@@ -246,6 +246,31 @@ VALUES (
     'La Segunda',
     '/images/aseguradoras/laSegunda.webp',
     'Logo de La Segunda Seguros'
+),
+(
+    'Sancor',
+    '/images/aseguradoras/Sancor.png',
+    'Logo de Sancor Seguros'
+),
+(
+    'Experta Seguros',
+    '/images/aseguradoras/experta.png',
+    'Logo de Experta Seguros'
+),
+(
+    'Mapfre Seguros',
+    '/images/aseguradoras/Mapfre.webp',
+    'Logo de Mapfre Seguros'
+),
+(
+    'San Cristobal Seguros',
+    '/images/aseguradoras/SanCristobal.png',
+    'Logo de San Cristobal Seguros'
+),
+(
+    'Triunfo Seguros',
+    '/images/aseguradoras/Triunfo.png',
+    'Logo de Triunfo Seguros'
 )
 ;
 
