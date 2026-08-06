@@ -142,6 +142,7 @@
         width:160px;
         height:100px;
         margin:0 .7rem;
+        
     }
 
     .insurers-list__item img{
@@ -152,5 +153,8 @@
     .insurers-list__slider::after {
     width: 60px;
     }
-
+    
+    .insurers-list__header {
+        margin-top: 1.2rem;
+    }
 }

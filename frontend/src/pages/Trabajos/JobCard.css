@@ -155,3 +155,24 @@
     line-height: 1.6;
     color: var(--color-gray-text);
 }
+
+@media (max-width: 768px){
+
+    .job-card__comparison{
+
+        min-height:190px;
+    }
+    .job-card__after{
+
+        object-position:center;
+
+    }
+
+    .job-card__before{
+
+        object-position:center;
+
+    }
+    
+
+}

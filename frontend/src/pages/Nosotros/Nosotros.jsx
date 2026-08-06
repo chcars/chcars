@@ -30,7 +30,16 @@ function Nosotros() {
                     <span className="nosotros-page__badge-text">NOSOTROS</span>
                 </div>
                 <h1>{data.title}</h1>
+                <h2 className="nosotros-page__subtitle">
+                Especialistas en chapa, pintura y microbollos en Córdoba Capital.
+                </h2>
                 <p>{data.description}</p>
+                <div className="nosotros-page__quote">
+                "Cada vehículo que ingresa a nuestro taller recibe el mismo nivel de cuidado y dedicación que si fuera propio."
+                </div>
+                <a href="/trabajos" className="nosotros-page__button">
+                Ver nuestros trabajos →
+                </a>
             </div>
         </section>
     );
