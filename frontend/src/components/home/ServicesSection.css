@@ -89,7 +89,6 @@
 
 .services-section__body {
     padding: 1.5rem;
-    background:#161616;
 }
 
 .services-section__title {
@@ -108,16 +107,12 @@
 .services-section__title::after {
     content: "→";
     color: var(--color-orange);
-    font-size: 1.35rem;
-    transition: transform .35s;
+    font-size: 1.2rem;
+    transition: transform .3s ease;
 }
-.services-section__card:hover .services-section__image{
 
-    transform:scale(1.08);
-
-}
 .services-section__card:hover .services-section__title::after {
-    transform: translateX(8px);
+    transform: translateX(6px);
 }
 
 .services-section__description {
