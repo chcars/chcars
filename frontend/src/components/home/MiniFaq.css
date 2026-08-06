@@ -1,26 +1,59 @@
 .mini-faq {
-    padding: 3rem 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
     font-family: var(--font-main);
+    text-align: center;
 }
 
-.mini-faq__header {
-    margin-bottom: 1.5rem;
+/* HEADER — mismo patrón que services-section__header */
+
+.mini-faq__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.mini-faq__badge-line {
+    width: 36px;
+    height: 3px;
+    background: var(--color-orange);
+}
+
+.mini-faq__badge-text {
+    color: var(--color-orange);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
 }
 
 .mini-faq__header h2 {
-    margin: 0;
+    margin: 0 0 1rem;
     font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     color: var(--color-white-neon);
 }
 
+.mini-faq__header p {
+    margin: 0 0 3rem;
+    color: var(--color-gray-text);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* LISTA */
+
 .mini-faq__list {
     display: grid;
-    gap: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
 }
+
+/* LINK FINAL */
 
 .mini-faq__link {
     display: inline-flex;
-    margin-top: 1.5rem;
     font-weight: 600;
     text-decoration: none;
     color: var(--color-orange);

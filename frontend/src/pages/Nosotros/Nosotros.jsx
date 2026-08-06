@@ -25,6 +25,10 @@ function Nosotros() {
             </div>
 
             <div className="nosotros-page__content">
+                <div className="nosotros-page__badge">
+                    <span className="nosotros-page__badge-line" />
+                    <span className="nosotros-page__badge-text">NOSOTROS</span>
+                </div>
                 <h1>{data.title}</h1>
                 <p>{data.description}</p>
             </div>

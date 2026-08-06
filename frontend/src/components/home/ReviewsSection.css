@@ -1,57 +1,117 @@
 .reviews-section {
-    padding: 3rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
     font-family: var(--font-main);
 }
 
+/* HEADER — mismo patrón que las otras secciones */
+
 .reviews-section__header {
-    margin-bottom: 1.5rem;
+    max-width: 760px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.reviews-section__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.reviews-section__badge-line {
+    width: 36px;
+    height: 3px;
+    background: var(--color-orange);
+}
+
+.reviews-section__badge-text {
+    color: var(--color-orange);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
 }
 
 .reviews-section__header h2 {
-    margin: 0;
+    margin: 0 0 1rem;
     font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     color: var(--color-white-neon);
 }
+
+.reviews-section__header p {
+    margin: 0;
+    color: var(--color-gray-text);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* GRID */
 
 .reviews-section__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
+/* CARD — mismo look oscuro que services-section__card */
+
 .reviews-section__card {
-    display: grid;
-    gap: 0.75rem;
-    padding: 1.25rem;
-    border-radius: var(--radius-base);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem;
+    border-radius: 18px;
     border: 1px solid var(--color-gray-border);
-    background: var(--color-white-neon);
-    box-shadow: var(--shadow-white-glow);
+    background: #161616;
     text-decoration: none;
     color: inherit;
     transition: var(--transition-base);
 }
 
 .reviews-section__card:hover {
-    box-shadow: var(--shadow-orange-glow);
+    transform: translateY(-6px);
+    border-color: var(--color-orange);
+    box-shadow: 0 20px 40px rgba(255, 106, 0, 0.18);
 }
 
-.reviews-section__author {
-    font-size: 1.05rem;
+.reviews-section__quote-icon {
+    color: var(--color-orange);
+    opacity: 0.5;
 }
 
 .reviews-section__rating {
-    color: var(--color-orange);
-    letter-spacing: 0.12em;
+    display: flex;
+    gap: 0.15rem;
 }
 
 .reviews-section__description {
     margin: 0;
-    line-height: 1.6;
+    flex-grow: 1;
+    line-height: 1.7;
     color: var(--color-gray-text);
 }
 
-@media (max-width: 768px) {
+.reviews-section__author {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-white-neon);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+    .reviews-section__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .reviews-section {
+        padding: 4rem 1.2rem;
+    }
+
     .reviews-section__grid {
         grid-template-columns: 1fr;
     }

@@ -2,13 +2,24 @@ import Loader from "../common/Loader";
 import useFetch from "../../hooks/useFetch";
 import { getServices } from "../../services/serviceService";
 import "./ServicesSection.css";
+import Skeleton from "../common/Loader";
 
 function ServicesSection() {
     const { data, loading, error } = useFetch(getServices);
 
     if (loading) {
-        return <Loader />;
-    }
+    return (
+        <div className="services-section__grid">
+            {[1, 2, 3, 4].map((n) => (
+                <div key={n} className="service-card">
+                    <Skeleton height="180px" style={{ marginBottom: "1rem" }} />
+                    <Skeleton width="60%" height="20px" style={{ marginBottom: "0.5rem" }} />
+                    <Skeleton width="90%" height="14px" />
+                </div>
+            ))}
+        </div>
+    );
+}
 
     if (error) {
         return <p>No se pudieron cargar los servicios</p>;
@@ -49,31 +60,31 @@ function ServicesSection() {
                     <article key={item.service_id} className="services-section__card">
                     
                         <div className="services-section__image-wrapper">
-                                
+
                             <img
                                 className="services-section__image"
                                 src={item.photo}
                                 alt={item.photo_alt}
                             />
-                
+
                             <div className="services-section__overlay">
-                                
+
                                 <h3 className="services-section__title">
                                     {item.name}
                                 </h3>
-                                
+
                             </div>
-                                
+
                         </div>
-                                
+
                         <div className="services-section__body">
-                                
+
                             {item.description ? (
                                 <p className="services-section__description">
                                     {item.description}
                                 </p>
                             ) : null}
-                
+
                         </div>
                         
                     </article>

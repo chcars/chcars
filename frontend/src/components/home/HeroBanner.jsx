@@ -4,6 +4,7 @@ import { getSettings } from "../../services/settingsService";
 import Loader from "../common/Loader";
 import "./HeroBanner.css";
 import useIsMobile from "../../hooks/useIsMobile";
+import Skeleton from "../common/Loader";
 
 function isExternal(url) {
     return typeof url === "string" && (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("//"));
@@ -14,7 +15,25 @@ function HeroBanner() {
     const { data: settings, loading: settingsLoading, error: settingsError } = useFetch(getSettings);
     const isMobile = useIsMobile();
 
-    if (bannerLoading || settingsLoading) return <Loader />;
+    if (bannerLoading || settingsLoading) {
+    return (
+        <section className="hero-banner hero-banner--skeleton">
+            <div className="hero-banner__inner">
+                <div className="hero-banner__content">
+                    <Skeleton width="140px" height="14px" style={{ marginBottom: "1rem" }} />
+                    <Skeleton width="80%" height="48px" style={{ marginBottom: "0.5rem" }} />
+                    <Skeleton width="60%" height="48px" style={{ marginBottom: "0.5rem" }} />
+                    <Skeleton width="70%" height="48px" style={{ marginBottom: "1.5rem" }} />
+                    <Skeleton width="90%" height="18px" style={{ marginBottom: "1.5rem" }} />
+                    <div style={{ display: "flex", gap: "1rem" }}>
+                        <Skeleton width="160px" height="48px" radius="8px" />
+                        <Skeleton width="160px" height="48px" radius="8px" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
 
     if (bannerError || settingsError) return <p>No se pudo cargar el banner</p>;
 

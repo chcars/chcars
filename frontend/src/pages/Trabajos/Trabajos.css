@@ -1,33 +1,73 @@
 .trabajos-page {
-    padding: 3rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
     font-family: var(--font-main);
 }
 
 .trabajos-page__header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .trabajos-page__header h1 {
-    margin: 0;
+    margin: 0 0 0.75rem;
     font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    text-transform: uppercase;
     color: var(--color-white-neon);
+}
+
+.trabajos-page__subtitle {
+    margin: 0;
+    color: var(--color-gray-text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.trabajos-page__hint {
+    text-align: center;
+    color: var(--color-orange);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 2rem;
+}
+
+.trabajos-page__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.trabajos-page__filter-label {
+    color: var(--color-gray-text);
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 .trabajos-page__filters {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 0;
 }
 
 .trabajos-page__filter {
     border: 1px solid var(--color-gray-border);
     border-radius: 999px;
     background: var(--color-white-neon);
-    padding: 0.65rem 1rem;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     cursor: pointer;
     color: var(--color-black);
     transition: var(--transition-base);
+}
+
+.trabajos-page__filter:hover {
+    border-color: var(--color-orange);
 }
 
 .trabajos-page__filter.is-active {
@@ -49,7 +89,18 @@
     }
 }
 
+@media (max-width: 768px) {
+    .trabajos-page__controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 @media (max-width: 640px) {
+    .trabajos-page {
+        padding: 4rem 1.2rem;
+    }
+
     .trabajos-page__grid {
         grid-template-columns: 1fr;
     }

@@ -37,7 +37,12 @@ function Trabajos() {
         <section className="trabajos-page">
             <header className="trabajos-page__header">
                 <h1>Nuestros Trabajos</h1>
+                <p className="trabajos-page__subtitle">
+                    Mirá la transformación real de cada vehículo que pasó por nuestro taller.
+                </p>
             </header>
+
+            <p className="trabajos-page__hint">Deslizá y comparé el antes y después de cada trabajo.</p>
 
             <div className="trabajos-page__controls">
                 <span className="trabajos-page__filter-label">Filtrar por categoría:</span>
@@ -92,3 +97,4 @@ function Trabajos() {
 }
 
 export default Trabajos;
+

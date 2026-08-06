@@ -1,10 +1,12 @@
-function Loader({ label = 'Cargando...' }) {
-  return (
-    <div className="ui-loader" role="status" aria-live="polite" aria-busy="true">
-      <span className="ui-loader__spinner" aria-hidden="true" />
-      <span className="ui-loader__label">{label}</span>
-    </div>
-  )
+import "./Loader.css";
+
+function Skeleton({ width = "100%", height = "20px", radius = "6px", style = {} }) {
+    return (
+        <div
+            className="skeleton"
+            style={{ width, height, borderRadius: radius, ...style }}
+        />
+    );
 }
 
-export default Loader
+export default Skeleton;
