@@ -9,71 +9,138 @@ function AseguradorasList() {
 
     const sliderRef = useRef(null);
     const animationRef = useRef(null);
+
     const isDraggingRef = useRef(false);
+    const isPausedRef = useRef(false);
 
     const startXRef = useRef(0);
     const startScrollLeftRef = useRef(0);
 
-    const [isPaused, setIsPaused] = useState(false);
+    const [, forceUpdate] = useState(false);
+
 
     /*
+     * ================================
      * AUTO SCROLL
+     * ================================
      */
+
     useEffect(() => {
+
+        if (!data || data.length === 0) {
+            return;
+        }
+
         const slider = sliderRef.current;
 
-        if (!slider || !data || data.length === 0) {
+        if (!slider) {
             return;
         }
 
         /*
-         * Tenemos 3 copias de los logos.
-         * Empezamos en la copia del medio.
+         * Tenemos 3 copias de las aseguradoras.
+         *
+         * Nos posicionamos en la copia del medio
+         * para poder movernos tanto a izquierda
+         * como a derecha.
+         */
+        const positionGroup = () => {
+
+            const groupWidth = slider.scrollWidth / 3;
+
+            if (slider.scrollLeft <= 0) {
+                slider.scrollLeft += groupWidth;
+            }
+
+            if (slider.scrollLeft >= groupWidth * 2) {
+                slider.scrollLeft -= groupWidth;
+            }
+
+        };
+
+
+        /*
+         * Posición inicial
          */
         const groupWidth = slider.scrollWidth / 3;
 
         slider.scrollLeft = groupWidth;
 
+
+        /*
+         * Animación
+         */
         const autoScroll = () => {
 
-            if (!isPaused && !isDraggingRef.current) {
+            if (
+                !isPausedRef.current &&
+                !isDraggingRef.current
+            ) {
                 slider.scrollLeft += 0.5;
             }
 
-            /*
-             * Si llegamos demasiado hacia la derecha,
-             * volvemos al grupo del medio.
-             */
-            if (slider.scrollLeft >= groupWidth * 2) {
-                slider.scrollLeft -= groupWidth;
-            }
+            positionGroup();
 
-            /*
-             * Si llegamos demasiado hacia la izquierda,
-             * volvemos al grupo del medio.
-             */
-            if (slider.scrollLeft <= 0) {
-                slider.scrollLeft += groupWidth;
-            }
-
-            animationRef.current = requestAnimationFrame(autoScroll);
+            animationRef.current =
+                requestAnimationFrame(autoScroll);
         };
 
-        animationRef.current = requestAnimationFrame(autoScroll);
 
+        animationRef.current =
+            requestAnimationFrame(autoScroll);
+
+
+        /*
+         * Cleanup
+         */
         return () => {
+
             if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
+                cancelAnimationFrame(
+                    animationRef.current
+                );
             }
+
         };
 
-    }, [data, isPaused]);
+    }, [data]);
 
 
     /*
-     * MOUSE
+     * ================================
+     * PAUSA
+     * ================================
      */
+
+    const pauseSlider = () => {
+
+        isPausedRef.current = true;
+
+        forceUpdate(value => !value);
+    };
+
+
+    const resumeSlider = () => {
+
+        setTimeout(() => {
+
+            isPausedRef.current = false;
+
+            forceUpdate(value => !value);
+
+        }, 1200);
+
+    };
+
+
+    /*
+     * ================================
+     * MOUSE
+     * ================================
+     */
+
     const handleMouseDown = (event) => {
+
         const slider = sliderRef.current;
 
         if (!slider) {
@@ -82,7 +149,7 @@ function AseguradorasList() {
 
         isDraggingRef.current = true;
 
-        setIsPaused(true);
+        pauseSlider();
 
         startXRef.current =
             event.pageX - slider.offsetLeft;
@@ -119,21 +186,28 @@ function AseguradorasList() {
 
     const handleMouseUp = () => {
 
+        if (!isDraggingRef.current) {
+            return;
+        }
+
         isDraggingRef.current = false;
 
         if (sliderRef.current) {
-            sliderRef.current.classList.remove("is-dragging");
+            sliderRef.current.classList.remove(
+                "is-dragging"
+            );
         }
 
-        setTimeout(() => {
-            setIsPaused(false);
-        }, 1500);
+        resumeSlider();
     };
 
 
     /*
+     * ================================
      * TOUCH
+     * ================================
      */
+
     const handleTouchStart = (event) => {
 
         const slider = sliderRef.current;
@@ -144,10 +218,11 @@ function AseguradorasList() {
 
         isDraggingRef.current = true;
 
-        setIsPaused(true);
+        pauseSlider();
 
         startXRef.current =
-            event.touches[0].pageX - slider.offsetLeft;
+            event.touches[0].pageX -
+            slider.offsetLeft;
 
         startScrollLeftRef.current =
             slider.scrollLeft;
@@ -169,7 +244,8 @@ function AseguradorasList() {
         }
 
         const x =
-            event.touches[0].pageX - slider.offsetLeft;
+            event.touches[0].pageX -
+            slider.offsetLeft;
 
         const walk =
             (x - startXRef.current) * 1.2;
@@ -181,27 +257,38 @@ function AseguradorasList() {
 
     const handleTouchEnd = () => {
 
+        if (!isDraggingRef.current) {
+            return;
+        }
+
         isDraggingRef.current = false;
 
         if (sliderRef.current) {
-            sliderRef.current.classList.remove("is-dragging");
+            sliderRef.current.classList.remove(
+                "is-dragging"
+            );
         }
 
-        setTimeout(() => {
-            setIsPaused(false);
-        }, 1500);
+        resumeSlider();
     };
 
 
     /*
-     * ESTADOS DE CARGA / ERROR
+     * ================================
+     * ESTADOS
+     * ================================
      */
+
     if (loading) {
         return <Loader />;
     }
 
     if (error) {
-        return <p>No se pudieron cargar las aseguradoras</p>;
+        return (
+            <p>
+                No se pudieron cargar las aseguradoras
+            </p>
+        );
     }
 
     if (!data || data.length === 0) {
@@ -210,8 +297,11 @@ function AseguradorasList() {
 
 
     /*
-     * REPETIMOS LOS LOGOS 3 VECES
+     * ================================
+     * REPETIR LOGOS
+     * ================================
      */
+
     const insurers = [
         ...data,
         ...data,
@@ -237,11 +327,9 @@ function AseguradorasList() {
 
                 </div>
 
-
                 <h2>
                     Trabajamos con las principales compañías de seguros
                 </h2>
-
 
                 <p>
                     Gestionamos el trámite directamente con tu aseguradora
@@ -253,12 +341,13 @@ function AseguradorasList() {
 
             <div className="insurers-list__viewport">
 
-                {/* DEGRADADO IZQUIERDO */}
+                <div
+                    className="
+                        insurers-list__fade
+                        insurers-list__fade--left
+                    "
+                ></div>
 
-                <div className="insurers-list__fade insurers-list__fade--left"></div>
-
-
-                {/* SLIDER */}
 
                 <div
                     ref={sliderRef}
@@ -298,9 +387,12 @@ function AseguradorasList() {
                 </div>
 
 
-                {/* DEGRADADO DERECHO */}
-
-                <div className="insurers-list__fade insurers-list__fade--right"></div>
+                <div
+                    className="
+                        insurers-list__fade
+                        insurers-list__fade--right
+                    "
+                ></div>
 
             </div>
 
